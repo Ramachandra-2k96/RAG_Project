@@ -125,6 +125,7 @@ import os
 
 load_dotenv()
 api_key = os.getenv("CEREBRAS_API_KEY")
+api_key = api_key if api_key else st.secrets.get("CEREBRAS_API_KEY", None)
 from langchain_cerebras import ChatCerebras
 
 llm = ChatCerebras(
